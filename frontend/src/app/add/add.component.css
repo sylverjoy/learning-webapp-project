@@ -24,3 +24,10 @@ input {
     margin-top: 15px;
     /* Adjust the top margin of the submit button */
   }
+
+
+  select {
+    cursor: pointer;
+    background-color: white;
+    padding: 10px 17px;
+  }

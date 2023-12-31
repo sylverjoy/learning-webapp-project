@@ -44,3 +44,16 @@
   button:hover {
     background-color: rgb(20, 104, 97);
   }
+
+  form {
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+
+  select {
+    cursor: pointer;
+    background-color: white;
+    padding: 10px 20px;
+  }
