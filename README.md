@@ -24,10 +24,14 @@ The only prerequisite is Docker. Make sure you have Docker installed on your mac
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/flashcard-app.git
-cd flashcard-app
+git clone https://github.com/sylverjoy/learning-webapp-project
+cd learning-webapp-project
 ```
+2. Use Docker Compose to build and run the containers::
 
+```bash
+docker-compose up --build
+```
 
 
 ### Details of the web app :
@@ -73,13 +77,8 @@ This is our readme file for the Node Project
 dehdzefho
 ![image](https://github.com/sylverjoy/Projet_Node_-_React/assets/113913066/6e0b0052-d341-4700-a1a4-3d2ce86483d8)
 
-
-### Installation
-
-1. Clone the repository:
-
-```bash
-git clone https://github.com/yourusername/flashcard-app.git
-cd flashcard-app
-
+### Built With
+Angular - The web framework used
+Express - The backend framework
+Sequelize - ORM for database interaction
 
