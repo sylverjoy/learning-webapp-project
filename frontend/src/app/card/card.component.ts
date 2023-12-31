@@ -35,8 +35,10 @@ export class CardComponent implements OnInit {
             });
           };
           if (deck[0].Cards) {
-            console.log(deck[0].Cards)
-            this.cards = deck[0].Cards;
+            const today = new Date();
+            this.cards = deck[0].Cards.filter((card:any) => {
+              return !card.lastReviewedDate || new Date(card.nextReviewDate) <= today;
+            });
           } else {
             this.cards = []; 
             console.log('Aucune carte trouvée ou deck est indéfini');
@@ -53,6 +55,9 @@ export class CardComponent implements OnInit {
     Easy: 0
   };
   setConfidenceLevel(level: 'Again' | 'Hard' | 'Good' | 'Easy'): void {
+    if (this.isDeckCompleted) {
+      return;
+    }
     this.apiService.getCardById(this.cards[this.currentCardIndex].id).subscribe((card: any) => {
       //Create UserCard if not created
       if (card[0].UserCards.length == 0) {
