@@ -1,21 +1,21 @@
-# Flashcard App
+# Learning Web App
 
-Flashcard App est une application web qui permet aux utilisateurs de créer, réviser et parcourir des ensembles de cartes de révision pour améliorer l'apprentissage et la mémorisation.
+Learning Web App is a web application that allows users to create, review, and browse decks of flashcards for enhanced learning and memorization.
 
-## Fonctionnalités
+## Features
 
-- Créer des decks de flashcards.
-- Réviser les flashcards avec un système de répétition espacée.
-- Parcourir les flashcards basées sur leur statut de révision.
-- Interface utilisateur intuitive et réactive.
+- Create flashcard decks.
+- Review flashcards with a spaced repetition system.
+- Browse flashcards based on their review status.
+- Intuitive and responsive user interface.
 
-## Commencer
+## Getting Started
 
-Ces instructions vous aideront à configurer une copie du projet en cours d'exécution sur votre machine locale à des fins de développement et de test.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-### Prérequis
+### Prerequisites
 
-Assurez-vous d'avoir installé toutes les dépendances suivantes :
+Make sure you have installed all the following prerequisites:
 
 - [Node.js](https://nodejs.org/)
 - [Angular CLI](https://angular.io/cli)
@@ -24,7 +24,7 @@ Assurez-vous d'avoir installé toutes les dépendances suivantes :
 
 ### Installation
 
-1. Clonez le dépôt :
+1. Clone the repository:
 
 ```bash
 git clone https://github.com/yourusername/flashcard-app.git
