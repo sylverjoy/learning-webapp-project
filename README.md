@@ -27,7 +27,7 @@ cd flashcard-app
 
 ### Details of the web app :
 
-Decks menu
+#### Decks menu :
 
 ![image](https://github.com/sylverjoy/learning-webapp-project/assets/149414061/39ac6921-0cf1-41d9-bb14-917a3829b395)
 
@@ -46,18 +46,19 @@ Once you choosed a deck, the recto of the first card appears. You can click on t
 
 Cards will reappear for review based on the selected confidence level, ensuring efficient learning.
 
-'Add a flashcard' menu :
+#### 'Add a flashcard' menu :
+
 This interface allows you to add a flashcard (recto and verso) to a deck (already created) as follows :
 
 ![image](https://github.com/sylverjoy/learning-webapp-project/assets/149414061/70805376-96e2-47da-a712-8bf8ffd8b756)
 
 
 
-'Browse' menu:
+#### 'Browse' menu:
 
 
 
-'Stats' menu :
+#### 'Stats' menu :
 
 
 
