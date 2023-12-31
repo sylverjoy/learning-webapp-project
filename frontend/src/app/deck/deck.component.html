@@ -12,13 +12,14 @@
 
 <div>
   <h3>Create a new Deck</h3>
-  <form (ngSubmit)="createDeck()">
+  <form (submit)="createDeck()">
     <input type="text" [(ngModel)]="newDeck.name" name="name" placeholder="Deck Name" required>
     <input type="text" [(ngModel)]="newDeck.description" name="description" placeholder="Description">
     <input type="text" [(ngModel)]="newDeck.category" name="category" placeholder="Category">
+    <select id="deck" [(ngModel)]="newDeck.difficultyLevel" name="difficultyLevel" required>
+      <option *ngFor="let lev of levels" [value]="lev.value">{{ lev.value }}</option>
+    </select>
 
     <button type="submit">Create Deck</button>
   </form>
 </div>
-
-

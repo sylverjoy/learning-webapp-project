@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class DeckComponent implements OnInit {
   newDeck: any = {};
   decks: any[] = [];
+  levels: any = [{"value": "Easy"}, {"value": "Medium"}, {"value": "Hard"}];
 
   constructor(private router: Router,private apiService: ApiService) { }
 
@@ -23,6 +24,7 @@ export class DeckComponent implements OnInit {
   }
 
   createDeck(): void {
+    console.log(this.newDeck);
     this.apiService.createDeck(this.newDeck).subscribe({
       next: (deck:any) => {
         console.log('Deck created:', deck);
