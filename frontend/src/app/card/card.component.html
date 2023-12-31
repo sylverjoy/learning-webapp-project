@@ -1,11 +1,11 @@
 <div *ngIf="cards.length > 0">
   <div class="card">
-    <p>Recto: {{ cards[currentCardIndex].recto }}</p>
-    <p *ngIf="showAnswer">Verso: {{ cards[currentCardIndex].verso }}</p>
-    <button (click)="toggleAnswer()">Answer</button>
+    <p>Recto: {{ cards[currentCardIndex][0].recto }}</p>
+    <p *ngIf="showAnswer">Verso: {{ cards[currentCardIndex][0].verso }}</p>
+    <button *ngIf="!isDeckCompleted"  (click)="toggleAnswer()">Answer</button>
   </div>
 </div>
-<div class="confidence-buttons">
+<div class="confidence-buttons" *ngIf="!isDeckCompleted">
   <button (click)="setConfidenceLevel('Again')">Again</button>
   <button (click)="setConfidenceLevel('Hard')">Hard</button>
   <button (click)="setConfidenceLevel('Good')">Good</button>
