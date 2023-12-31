@@ -26,6 +26,10 @@ The only prerequisite is Docker. Make sure you have Docker installed on your mac
 ```bash
 git clone https://github.com/yourusername/flashcard-app.git
 cd flashcard-app
+```
+
+
+
 ### Details of the web app :
 
 #### Decks menu :
