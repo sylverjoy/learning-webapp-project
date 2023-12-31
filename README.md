@@ -5,9 +5,9 @@ Learning Web App is a web application that allows users to create, review, and b
 ## Features
 
 - Create flashcard decks.
+- Insert flashcards in a deck.
 - Review flashcards with a spaced repetition system.
 - Browse flashcards based on their review status.
-- Intuitive and responsive user interface.
 
 ## Getting Started
 
