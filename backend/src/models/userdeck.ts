@@ -2,7 +2,7 @@ import { Model, DataTypes, Sequelize } from 'sequelize';
 import { sequelize } from '../config/database'; 
 import { Deck } from './deck';
 
-export class UserDeck extends Model {
+class UserDeck extends Model {
   public id!: number;
   public startDate!: string;
   public expectedEndDate!: string;
@@ -37,5 +37,8 @@ UserDeck.init({
   tableName: 'userdeck',
   sequelize: sequelize, 
 });
+
+export { UserDeck };
+
 
 

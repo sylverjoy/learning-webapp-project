@@ -1,8 +1,7 @@
 import { Model, DataTypes, Sequelize } from 'sequelize';
 import { sequelize } from '../config/database'; 
-import { Card } from './card';
 
-export class UserCard extends Model {
+class UserCard extends Model {
   public id!: number;
   public confidenceLevel: string | undefined;
   public numberOfTimesReviewed!: number;
@@ -43,5 +42,9 @@ UserCard.init({
   tableName: 'usercard',
   sequelize: sequelize, 
 });
+
+
+export { UserCard };
+
 
 

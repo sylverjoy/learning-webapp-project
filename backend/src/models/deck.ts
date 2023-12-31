@@ -1,7 +1,5 @@
 import { Model, DataTypes } from 'sequelize';
 import { sequelize } from '../config/database'; 
-import { Card } from './card';
-import { UserDeck } from './userdeck';
 
 class Deck extends Model {
   public id!: number;

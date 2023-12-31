@@ -1,7 +1,7 @@
 import { Component, Injector, OnInit } from '@angular/core';
 import * as Highcharts from 'highcharts';
 
-import { ApiService } from '../api.service';
+import { ApiService } from '../services/api.service'
 
 @Component({
   selector: 'app-stats',

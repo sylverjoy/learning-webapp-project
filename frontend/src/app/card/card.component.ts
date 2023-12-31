@@ -22,7 +22,12 @@ export class CardComponent implements OnInit {
       if (idParam !== null) {
         this.deckId = +idParam;
         this.apiService.getDeckById(this.deckId).subscribe((deck: any) => {
-          console.log(deck); 
+          // Create Userdeck if not created
+          if (deck[0].UserDecks.length == 0) {
+            //this.apiService.createUserDeck({
+
+            //});
+          };
           if (deck[0].Cards) {
             console.log(deck[0].Cards)
             this.cards = deck[0].Cards;

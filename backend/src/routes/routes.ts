@@ -9,7 +9,7 @@ const router = Router();
 // Card routes
 router.get('/cards', async (req, res) => {
   try {
-    const cards = await Card.findAll();
+    const cards = await Card.findAll({include: UserCard});
     res.status(200).json(cards);
   } catch (error) {
     res.status(500).send(error);
@@ -19,7 +19,7 @@ router.get('/cards', async (req, res) => {
 router.get('/cards/:id', async (req, res) => {
   try {
     const id = req.params.id;
-    const cards = await Card.findAll({ where: { id: id} });
+    const cards = await Card.findAll({ include:UserCard, where: { id: id} });
     res.status(200).json(cards);
   } catch (error) {
     res.status(500).send(error);
@@ -50,7 +50,7 @@ router.put('/cards/:id',async (req, res) => {
 // Deck routes
 router.get('/decks', async (req, res) => {
   try {
-    const decks = await Deck.findAll({ include: Card });
+    const decks = await Deck.findAll({ include: [{model: Card}, {model: UserDeck}] });
     res.status(200).json(decks);
   } catch (error) {
     res.status(400).send(error);
@@ -60,7 +60,7 @@ router.get('/decks', async (req, res) => {
 router.get('/decks/:id', async (req, res) => {
   try {
     const id = req.params.id;
-    const deck = await Deck.findAll({ include: Card, where: { id: id} });
+    const deck = await Deck.findAll({ include: [{model: Card}, {model: UserDeck}], where: { id: id} });
     res.status(200).json(deck);
   } catch (error) {
     res.status(500).send(error);
@@ -138,8 +138,8 @@ router.put('/userdecks/:id', async (req, res) => {
 router.get('/usercards', async (req, res) => {
   try {
     const usercards = await UserCard.findAll({ include: [{
-      model: Card,
-  }], });
+      model: Card
+}], });
     res.status(200).json(usercards);
   } catch (error) {
     res.status(400).send(error);
