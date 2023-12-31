@@ -72,7 +72,7 @@ The 'Browse' menu lists all the existing cards and decks. If you add a deck or a
 
 #### 'Stats' menu :
 
-In this tab you can see some graphs about your current progression. This tab is not finished.
+In this tab you can see some graphs about your current progression.
 
 ![image](https://github.com/sylverjoy/learning-webapp-project/assets/113913066/725c5722-13a9-478e-8440-94d5f7ab0522)
 
