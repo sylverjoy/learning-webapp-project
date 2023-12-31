@@ -25,8 +25,7 @@ Make sure you have installed all the following prerequisites:
 git clone https://github.com/yourusername/flashcard-app.git
 cd flashcard-app
 
-
-Introduction
+### Details of the web app :
 
 
 Decks
