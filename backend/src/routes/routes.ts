@@ -184,13 +184,13 @@ router.put('/usercards/:id', async (req, res) => {
 router.get('/usercards/never-reviewed', async (req, res) => {
   try {
     const cardsNeverReviewed = await UserCard.findAll({
-      where: {
-        numberOfTimesReviewed: 0
-      },
-      //include: [{ model: Card }]
+      include: [{ model: Card }]
     });
-    res.status(200).json(cardsNeverReviewed);
-  } catch (error) {
+    const filteredCards = cardsNeverReviewed.filter(card => card.numberOfTimesReviewed === 0);
+    res.status(200).json(filteredCards);
+  } catch (error: any) {
+    console.log(error.message);
+    console.log(error.original);
     res.status(500).send(error);
   }
 });
@@ -201,14 +201,10 @@ router.get('/usercards/reviewed-today', async (req, res) => {
 
   try {
     const cardsReviewedToday = await UserCard.findAll({
-      where: {
-        lastReviewedDate: {
-          [Op.gte]: startOfDay
-        }
-      },
-      //include: [{ model: Card }]
+      include: [{ model: Card }]
     });
-    res.status(200).json(cardsReviewedToday);
+    const filteredCards = cardsReviewedToday.filter(card => new Date(card.lastReviewedDate) === startOfDay);
+    res.status(200).json(filteredCards);
   } catch (error) {
     res.status(500).send(error);
   }

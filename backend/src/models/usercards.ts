@@ -5,7 +5,7 @@ class UserCard extends Model {
   public id!: number;
   public confidenceLevel: string | undefined;
   public numberOfTimesReviewed!: number;
-  public lastReviewedDate: string | undefined;
+  public lastReviewedDate!: string ;
   public nextReviewDate: string | undefined;
 
   static associate(models: any) {
@@ -16,7 +16,7 @@ class UserCard extends Model {
 
 UserCard.init({
   id: {
-    type: DataTypes.INTEGER.UNSIGNED,
+    type: DataTypes.INTEGER,
     autoIncrement: true,
     primaryKey: true,
   },
