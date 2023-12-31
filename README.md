@@ -34,7 +34,7 @@ docker-compose up --build
 ```
 
 
-### Details of the web app :
+### Details of the web app
 
 #### Decks menu :
 
