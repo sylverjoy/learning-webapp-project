@@ -15,16 +15,17 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-Make sure you have installed all the following prerequisites:
+The only prerequisite is Docker. Make sure you have Docker installed on your machine:
 
-- [Node.js](https://nodejs.org/)
-- [Angular CLI](https://angular.io/cli)
-- [Docker](https://www.docker.com/products/docker-desktop)
-- [PostgreSQL](https://www.postgresql.org/download/)
+- [Docker](https://www.docker.com/get-started)
 
+### Installation
+
+1. Clone the repository:
+
+```bash
 git clone https://github.com/yourusername/flashcard-app.git
 cd flashcard-app
-
 ### Details of the web app :
 
 #### Decks menu :
