@@ -1,5 +1,31 @@
-To use our web application you can download dockers : https://www.docker.com/products/docker-desktop/
-After cloning the project, go in your terminal and in the repository of the project. 
-Do the command : dockers compose up --build. 
+# Flashcard App
 
-![image](https://github.com/sylverjoy/Projet_Node_-_React/assets/113913066/6e0b0052-d341-4700-a1a4-3d2ce86483d8)
+Flashcard App est une application web qui permet aux utilisateurs de créer, réviser et parcourir des ensembles de cartes de révision pour améliorer l'apprentissage et la mémorisation.
+
+## Fonctionnalités
+
+- Créer des decks de flashcards.
+- Réviser les flashcards avec un système de répétition espacée.
+- Parcourir les flashcards basées sur leur statut de révision.
+- Interface utilisateur intuitive et réactive.
+
+## Commencer
+
+Ces instructions vous aideront à configurer une copie du projet en cours d'exécution sur votre machine locale à des fins de développement et de test.
+
+### Prérequis
+
+Assurez-vous d'avoir installé toutes les dépendances suivantes :
+
+- [Node.js](https://nodejs.org/)
+- [Angular CLI](https://angular.io/cli)
+- [Docker](https://www.docker.com/products/docker-desktop)
+- [PostgreSQL](https://www.postgresql.org/download/)
+
+### Installation
+
+1. Clonez le dépôt :
+
+```bash
+git clone https://github.com/yourusername/flashcard-app.git
+cd flashcard-app
