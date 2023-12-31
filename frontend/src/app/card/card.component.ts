@@ -24,9 +24,15 @@ export class CardComponent implements OnInit {
         this.apiService.getDeckById(this.deckId).subscribe((deck: any) => {
           // Create Userdeck if not created
           if (deck[0].UserDecks.length == 0) {
-            //this.apiService.createUserDeck({
-
-            //});
+            const startDate = new Date();
+            const expectedEndDate = new Date(startDate);
+            expectedEndDate.setMonth(startDate.getMonth() + 1);
+            this.apiService.createUserDeck({
+              startDate: startDate,
+              expectedEndDate: expectedEndDate,
+              minutesPerDayObjective: 30,
+              DeckId: this.deckId,
+            });
           };
           if (deck[0].Cards) {
             console.log(deck[0].Cards)
@@ -47,32 +53,41 @@ export class CardComponent implements OnInit {
     Easy: 0
   };
   setConfidenceLevel(level: 'Again' | 'Hard' | 'Good' | 'Easy'): void {
-    let currentCard = this.cards[this.currentCardIndex];
-    currentCard.confidenceLevel = level;
-    this.confidenceLevels[level]++;
-    currentCard.numberOfTimesReviewed += 1;
-    currentCard.lastReviewedDate = new Date().toISOString();
+    this.apiService.getCardById(this.cards[this.currentCardIndex].id).subscribe((card: any) => {
+      //Create UserCard if not created
+      if (card[0].UserCards.length == 0) {
+        this.apiService.createUserCard({
+          CardId: card.id
+        })
+      };
+      card[0].UserCards[0].confidenceLevel = level;
+      this.confidenceLevels[level]++;
+      card[0].UserCards[0].numberOfTimesReviewed += 1;
+      card[0].UserCards[0].lastReviewedDate = new Date();
   
-    switch(level) {
-      case 'Again':
-        currentCard.nextReviewDate = 1;
+      switch(level) {
+        case 'Again':
+          card[0].UserCards[0].nextReviewDate = new Date();
+          this.cards.push(card);
+          break;
+        case 'Hard':
+          card[0].UserCards[0].nextReviewDate = new Date(new Date().getTime() + (2 * 1000 * 60 * 60 * 24));
+          break;
+        case 'Good':
+          card[0].UserCards[0].nextReviewDate = new Date(new Date().getTime() + (4 * 1000 * 60 * 60 * 24));
+          break;
+        case 'Easy':
+          card[0].UserCards[0].nextReviewDate = new Date(new Date().getTime() + (6 * 1000 * 60 * 60 * 24));
         break;
-      case 'Hard':
-        currentCard.nextReviewDate = 2;
-        break;
-      case 'Good':
-        currentCard.nextReviewDate = 3;
-        break;
-      case 'Easy':
-        currentCard.nextReviewDate = 4;
-        break;
-    }
+      }
   
-    this.apiService.updateCard(currentCard.id, currentCard).subscribe(response => {
-      console.log('Carte mise à jour avec succès');
-    });
+      this.apiService.updateUserCard( card[0].UserCards[0].id,  card[0].UserCards[0]).subscribe(response => {
+        console.log('Carte mise à jour avec succès');
+      });
   
-    this.loadNextCard();
+      this.loadNextCard();
+      }) ;
+     
   }
 
   loadNextCard(): void {
