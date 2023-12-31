@@ -68,7 +68,7 @@ export class CardComponent implements OnInit {
       switch(level) {
         case 'Again':
           card[0].UserCards[0].nextReviewDate = new Date();
-          this.cards.push(card);
+          //this.cards.push(card);
           break;
         case 'Hard':
           card[0].UserCards[0].nextReviewDate = new Date(new Date().getTime() + (2 * 1000 * 60 * 60 * 24));
