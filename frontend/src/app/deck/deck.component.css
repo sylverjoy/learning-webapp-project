@@ -21,3 +21,26 @@
   .deck-item p {
     color: #666;
   }
+
+  input {
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+
+  button {
+    display: block; /* Rend le bouton traitable comme un bloc pour les marges automatiques */
+    margin: 10px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: rgb(41, 169, 158);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: rgb(20, 104, 97);
+  }

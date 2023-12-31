@@ -8,7 +8,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./deck.component.css']
 })
 export class DeckComponent implements OnInit {
-  decks: any;
+  newDeck: any = {};
+  decks: any[] = [];
 
   constructor(private router: Router,private apiService: ApiService) { }
 
@@ -19,5 +20,16 @@ export class DeckComponent implements OnInit {
   }
   onDeckSelect(deckId: number): void {
     this.router.navigate(['/card', deckId]);
+  }
+
+  createDeck(): void {
+    this.apiService.createDeck(this.newDeck).subscribe({
+      next: (deck:any) => {
+        console.log('Deck created:', deck);
+        this.decks.push(deck); // Ajoutez le nouveau deck à la liste
+        this.newDeck = {}; // Réinitialisez le formulaire
+      },
+      error: (error:any) => console.error('There was an error!', error)
+    });
   }
 }
