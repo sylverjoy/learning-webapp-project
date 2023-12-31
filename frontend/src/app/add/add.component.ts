@@ -1,25 +1,35 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { CardService } from '../services/card.service';
+import { DeckService } from '../services/deck.service';
+
 
 @Component({
   selector: 'app-add',
   templateUrl: './add.component.html',
   styleUrls: ['./add.component.css']
 })
-export class AddComponent {
-  public recto: string;
-  public verso: string;
+export class AddComponent implements OnInit {
+  card: any = {};
+  decks: any[] = [];
 
-  constructor() {
-    this.recto = '';
-    this.verso = '';
+  constructor(private cardService: CardService, private deckService: DeckService) {}
+
+  ngOnInit(): void {
+    this.deckService.getDecks().subscribe(decks => {
+      this.decks = decks;
+    });
   }
 
-  public updateInputs() {
-    console.log(this.recto, this.verso);
-  }
-
-  public addFunction(): void {
-    console.log('Bouton Add cliqué');
-    // Ici, vous pourriez ajouter des éléments à une liste, ouvrir un formulaire, etc.
+  addCard() {
+    this.cardService.addCard(this.card).subscribe(
+      (response) => {
+        console.log('Card added successfully:', response);
+        // You can redirect to another page or perform additional actions on success
+      },
+      (error) => {
+        console.error('Error adding card:', error);
+        // Handle error, show a message, etc.
+      }
+    );
   }
 }

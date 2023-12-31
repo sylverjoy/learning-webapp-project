@@ -1,0 +1,19 @@
+<div *ngIf="selectedDeck">
+    <h2>Study Session - {{ selectedDeck.name }}</h2>
+
+    <div *ngIf="currentCard">
+        <h3>Card {{ studyService.currentCardIndex + 1 }}</h3>
+        <p>{{ currentCard.recto }}</p>
+
+        <button (click)="showVerso()">Show Verso</button>
+        <button (click)="addStatus('hard')">Hard</button>
+        <button (click)="addStatus('good')">Good</button>
+        <button (click)="addStatus('easy')">Easy</button>
+
+        <button (click)="nextCard()">Next Card</button>
+    </div>
+
+    <div *ngIf="!currentCard">
+        <p>Congratulations! You've completed the study session.</p>
+    </div>
+</div>

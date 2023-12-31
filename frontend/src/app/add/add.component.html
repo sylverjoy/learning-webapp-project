@@ -1,15 +1,21 @@
-<p>Let's create a new flashcard : </p>
+<h2>Let's create a new flashcard : </h2>
 
 <div>
-<p>Recto</p>
-<input type="text" id="recto" name="recto" />
-</div>
-
-<div>
-<p>Verso</p>
-<input type="text" id="verso" name="verso" />
-</div>
-
-<div>
-<button (click)="addFunction()">Add</button>
+  <form (submit)="addCard()">
+    <div>
+      <label for="recto">Recto:</label>
+      <input type="text" id="recto" [(ngModel)]="card.recto" name="recto" required>
+    </div>
+    <div>
+      <label for="verso">Verso:</label>
+      <input type="text" id="verso" [(ngModel)]="card.verso" name="verso" required>
+    </div>
+    <div>
+      <label for="deck">Select a Deck:</label>
+      <select id="deck" [(ngModel)]="card.DeckId" name="deck" required>
+        <option *ngFor="let deck of decks" [value]="deck.id">{{ deck.name }}</option>
+      </select>
+    </div>
+    <button type="submit">Add Card</button>
+  </form>
 </div>

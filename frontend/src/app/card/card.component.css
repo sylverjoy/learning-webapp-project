@@ -1,0 +1,31 @@
+.confidence-levels {
+    display: flex;
+    justify-content: center; 
+    gap: 20px; 
+  }
+  .confidence-buttons button {
+    margin: 15px; 
+    padding: 10px 15px; 
+    border: none;
+    border-radius: 5px; 
+    color: white; 
+    background-color: rgb(41, 169, 158);
+    cursor: pointer;
+  }
+  
+  .confidence-buttons button:hover {
+    background-color: #45a049; 
+  }
+
+  .card p {
+    margin-bottom: 20px; 
+  }
+  
+  .card button {
+    margin-top: 20px; 
+    margin-bottom: 20px; 
+  }
+  
+  .confidence-buttons {
+    margin-top: 20px; 
+  }

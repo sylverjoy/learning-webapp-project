@@ -1,1 +1,39 @@
-<p>browse works!</p>
+<div *ngIf="decks">
+    <h2>Decks of Cards</h2>
+    <div *ngFor="let deck of decks">
+        <div>
+            <h3>
+                <span style="text-decoration: underline;">[{{ deck.id }}] </span>
+                <span style="text-decoration: underline;">{{ deck.name }}</span>
+            </h3>
+            <p style="font-style: italic;">{{ deck.description }}</p>
+            <!-- Add more details as needed -->
+
+            <div *ngIf="deck.Cards && deck.Cards.length > 0">
+                <h4>Cards</h4>
+                <ul>
+                    <li *ngFor="let card of deck.Cards">
+                        {{ card.recto }} || {{ card.verso }}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div *ngIf="cardsNeverReviewed.length > 0">
+    <h3>Cards Never Reviewed</h3>
+    <div *ngFor="let card of cardsNeverReviewed">
+
+    </div>
+  </div>
+  
+
+<div *ngIf="cardsReviewedToday.length > 0">
+<h3>Cards Reviewed Today</h3>
+<div *ngFor="let card of cardsReviewedToday">
+
+</div>
+</div>
+

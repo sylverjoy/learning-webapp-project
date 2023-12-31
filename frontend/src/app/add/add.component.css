@@ -7,7 +7,7 @@ input {
 
   button {
     display: block; /* Rend le bouton traitable comme un bloc pour les marges automatiques */
-    margin: 0 auto;
+    margin: 10px auto;
     padding: 10px 20px;
     font-size: 16px;
     color: white;
@@ -18,4 +18,16 @@ input {
   }
   button:hover {
     background-color: rgb(20, 104, 97);
+  }
+
+  .btn-submit {
+    margin-top: 15px;
+    /* Adjust the top margin of the submit button */
+  }
+
+
+  select {
+    cursor: pointer;
+    background-color: white;
+    padding: 10px 17px;
   }
