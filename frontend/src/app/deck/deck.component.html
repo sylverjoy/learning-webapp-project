@@ -11,8 +11,9 @@
 
 
 <div>
-  <h3>Create a new Deck</h3>
+  
   <form (submit)="createDeck()">
+    <h3>Create a new Deck</h3>
     <input type="text" [(ngModel)]="newDeck.name" name="name" placeholder="Deck Name" required>
     <input type="text" [(ngModel)]="newDeck.description" name="description" placeholder="Description">
     <input type="text" [(ngModel)]="newDeck.category" name="category" placeholder="Category">
@@ -23,3 +24,6 @@
     <button type="submit">Create Deck</button>
   </form>
 </div>
+
+
+
