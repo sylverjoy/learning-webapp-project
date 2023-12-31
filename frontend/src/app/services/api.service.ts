@@ -78,4 +78,13 @@ export class ApiService {
   updateUserCard(id: number, userCard: any): Observable<any> {
     return this.http.put<any>(`${this.baseUrl}/usercards/${id}`, userCard);
   }
+
+
+  getCardsNeverReviewed(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseUrl}/usercards/never-reviewed`);
+  }
+
+  getCardsReviewedToday(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseUrl}/usercards/reviewed-today`);
+  }
 }

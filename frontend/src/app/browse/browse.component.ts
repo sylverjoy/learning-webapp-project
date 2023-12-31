@@ -1,5 +1,5 @@
 import { Component, Inject, Injector, OnInit } from '@angular/core';
-import { DeckService } from '../services/deck.service';
+import { ApiService } from '../services/api.service';
 
 @Component({
   selector: 'app-deck',
@@ -8,13 +8,23 @@ import { DeckService } from '../services/deck.service';
 })
 export class BrowseComponent {
   decks: any[] = [];
+  cardsNeverReviewed: any[] =[];
+  cardsReviewedToday: any[] =[];
+
+
 
   constructor(@Inject(Injector) private injector: Injector) {}
 
   ngOnInit(): void {
-    const deckService = this.injector.get(DeckService);
-    deckService.getDecks().subscribe(decks => {
+    const apiService = this.injector.get(ApiService);
+    apiService.getAllDecks().subscribe((decks: any) => {
       this.decks = decks;
+    });
+    apiService.getCardsNeverReviewed().subscribe((cards:any )=> {
+      this.cardsNeverReviewed = cards;
+    });
+    apiService.getCardsReviewedToday().subscribe((cards:any) => {
+      this.cardsReviewedToday = cards;
     });
   }
 }

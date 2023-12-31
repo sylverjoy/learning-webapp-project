@@ -3,6 +3,7 @@ import { Card } from '../models/card';
 import { Deck } from '../models/deck';
 import { UserDeck } from '../models/userdeck';
 import { UserCard } from '../models/usercards';
+import { Op } from 'sequelize';
 
 const router = Router();
 
@@ -176,6 +177,40 @@ router.put('/usercards/:id', async (req, res) => {
     })
   } catch (error) {
     res.status(400).send(error);
+  }
+});
+
+
+router.get('/usercards/never-reviewed', async (req, res) => {
+  try {
+    const cardsNeverReviewed = await UserCard.findAll({
+      where: {
+        numberOfTimesReviewed: 0
+      },
+      //include: [{ model: Card }]
+    });
+    res.status(200).json(cardsNeverReviewed);
+  } catch (error) {
+    res.status(500).send(error);
+  }
+});
+
+router.get('/usercards/reviewed-today', async (req, res) => {
+  const startOfDay = new Date();
+  startOfDay.setHours(0, 0, 0, 0);
+
+  try {
+    const cardsReviewedToday = await UserCard.findAll({
+      where: {
+        lastReviewedDate: {
+          [Op.gte]: startOfDay
+        }
+      },
+      //include: [{ model: Card }]
+    });
+    res.status(200).json(cardsReviewedToday);
+  } catch (error) {
+    res.status(500).send(error);
   }
 });
 

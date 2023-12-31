@@ -20,3 +20,20 @@
         </div>
     </div>
 </div>
+
+
+<div *ngIf="cardsNeverReviewed.length > 0">
+    <h3>Cards Never Reviewed</h3>
+    <div *ngFor="let card of cardsNeverReviewed">
+
+    </div>
+  </div>
+  
+
+<div *ngIf="cardsReviewedToday.length > 0">
+<h3>Cards Reviewed Today</h3>
+<div *ngFor="let card of cardsReviewedToday">
+
+</div>
+</div>
+
