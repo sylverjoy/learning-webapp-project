@@ -27,7 +27,7 @@ The only prerequisite is Docker. Make sure you have Docker installed on your mac
 git clone https://github.com/sylverjoy/learning-webapp-project
 cd learning-webapp-project
 ```
-2. Use Docker Compose to build and run the containers::
+2. Use Docker Compose to build and run the containers:
 
 ```bash
 docker-compose up --build
